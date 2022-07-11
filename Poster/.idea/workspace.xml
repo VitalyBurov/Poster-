@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="885c5081-cee7-42c4-bf54-2845bf62a711" name="Changes" comment="First commit" />
+    <list default="true" id="885c5081-cee7-42c4-bf54-2845bf62a711" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/burov/event/core/api/FieldValidationError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/burov/event/core/dto/FieldValidationErrorDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/burov/event/core/dto/FieldValidationResultDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/burov/event/core/exception/FieldValidationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/burov/event/controller/ConcertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/burov/event/controller/ConcertController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/burov/event/controller/FilmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/burov/event/controller/FilmController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/burov/event/controller/advices/GlobalHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/burov/event/controller/advices/GlobalHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/burov/event/core/api/CustomException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/burov/event/service/ConcertServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/burov/event/service/ConcertServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/burov/event/service/FilmServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/burov/event/service/FilmServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../classifier/.gitignore" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +32,8 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../classifier" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -67,34 +80,38 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../classifier" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ToolWindowCommit.ShowToolbar" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea/libraries" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\bva23\Downloads\Mk-JD2-90-22-master\Mk-JD2-90-22-master\Afisha\.idea\libraries" />
       <recent name="C:\Users\bva23\Downloads\Mk-JD2-90-22-master\Mk-JD2-90-22-master\classifier" />
       <recent name="C:\Users\bva23\Downloads\Mk-JD2-90-22-master\Mk-JD2-90-22-master\Afisha" />
       <recent name="C:\Users\bva23\Downloads\Mk-JD2-90-22-master\Mk-JD2-90-22-master\Afisha\src\main\java\by\burov\event\repository\api" />
       <recent name="C:\Users\bva23\Downloads\Mk-JD2-90-22-master\Mk-JD2-90-22-master\Afisha\src\main\java\by\burov\event\repository" />
-      <recent name="C:\Users\bva23\Downloads\Mk-JD2-90-22-master\Mk-JD2-90-22-master\Afisha\src\main\java\by\burov\event\core" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\bva23\Downloads\Mk-JD2-90-22-master\Mk-JD2-90-22-master\classifier\target" />
       <recent name="C:\Users\bva23\Downloads\Mk-JD2-90-22-master\Mk-JD2-90-22-master\Afisha" />
-      <recent name="C:\Users\bva23\Downloads\Mk-JD2-90-22-master\Mk-JD2-90-22-master\Afisha\src" />
+      <recent name="C:\Users\bva23\Downloads\Mk-JD2-90-22-master\Mk-JD2-90-22-master\classifier\.idea" />
+      <recent name="C:\Users\bva23\Downloads\Mk-JD2-90-22-master\Mk-JD2-90-22-master\Afisha\.idea" />
+      <recent name="C:\Users\bva23\Downloads\Mk-JD2-90-22-master\Mk-JD2-90-22-master\classifier" />
+      <recent name="C:\Users\bva23\Downloads\Mk-JD2-90-22-master\Mk-JD2-90-22-master\classifier\target" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="by.burov.event.core.dto" />
       <recent name="by.burov.event.controller.advices" />
       <recent name="by.burov.event.core.api" />
-      <recent name="by.burov.event.core.dto" />
       <recent name="by.burov.event.config" />
       <recent name="org.example.events.controllers.utills" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PosterApplication (2)">
+  <component name="RunManager" selected="Application.ClassifierApplication">
     <configuration name="ClassifierApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="by.burov.classifiers.ClassifierApplication" />
       <module name="classifier" />
@@ -175,8 +192,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PosterApplication (2)" />
         <item itemvalue="Application.ClassifierApplication" />
+        <item itemvalue="Application.PosterApplication (2)" />
         <item itemvalue="Application.PosterApplication" />
         <item itemvalue="Application.PosterApplication (1)" />
       </list>
@@ -201,7 +218,42 @@
       <option name="project" value="LOCAL" />
       <updated>1657561975933</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="First commit">
+      <created>1657564333294</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657564333294</updated>
+    </task>
+    <task id="LOCAL-00003" summary="First commit">
+      <created>1657564670782</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1657564670782</updated>
+    </task>
+    <task id="LOCAL-00004" summary="First commit">
+      <created>1657565090097</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657565090097</updated>
+    </task>
+    <task id="LOCAL-00005" summary="First commit">
+      <created>1657565203445</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1657565203445</updated>
+    </task>
+    <task id="LOCAL-00006" summary="First commit">
+      <created>1657566040017</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657566040017</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,13 +261,28 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../ITAcademy Poster" />
+    </ignored-roots>
     <MESSAGE value="First commit" />
     <option name="LAST_COMMIT_MESSAGE" value="First commit" />
   </component>
@@ -232,14 +299,10 @@
           <line>27</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/by/burov/event/PosterApplication.java</url>
-          <line>11</line>
-          <properties class="by.burov.event.PosterApplication" method="main">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="7" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/by/burov/event/service/ConcertServiceImp.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

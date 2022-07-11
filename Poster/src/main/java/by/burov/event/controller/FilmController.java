@@ -27,6 +27,7 @@ public class FilmController {
     }
 
     @PostMapping
+    // change to DTO
     public ResponseEntity<Film> createFilm(@RequestBody CreateFilmDto film) {
         return new ResponseEntity<>(filmService.save(film), HttpStatus.CREATED);
 
@@ -46,6 +47,7 @@ public class FilmController {
     }
 
     @PutMapping("/{uuid}/dt_update/{dt_update}")
+    // change to DTO
     public ResponseEntity<Film> updateFilm(@PathVariable("uuid") UUID uuid,
                                            @PathVariable("dt_update") Long dt,
                                            @RequestBody CreateFilmDto film) {

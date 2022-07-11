@@ -27,7 +27,7 @@ public class ConcertController {
 
     }
 
-    @PostMapping
+    @PostMapping // change to Read concert
     public ResponseEntity<Concert> createConcert(@RequestBody CreateConcertDto concert) {
         return new ResponseEntity<>(concertsService.save(concert), HttpStatus.CREATED);
 
@@ -48,6 +48,7 @@ public class ConcertController {
     }
 
     @PutMapping("/{uuid}/dt_update/{dt_update}")
+    // change to Read concert
     public ResponseEntity<Concert> updateConcert(@PathVariable("uuid") UUID uuid,
                                  @PathVariable("dt_update") Long dt,
                                  @RequestBody CreateConcertDto concert) {
