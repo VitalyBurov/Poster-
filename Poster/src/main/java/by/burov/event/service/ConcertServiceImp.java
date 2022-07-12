@@ -1,9 +1,7 @@
 package by.burov.event.service;
 
-import by.burov.event.core.api.FieldValidationError;
 import by.burov.event.core.dto.CreateConcertDto;
 import by.burov.event.core.dto.ReadConcertDto;
-import by.burov.event.core.exception.FieldValidationException;
 import by.burov.event.repository.ConcertRepository;
 import by.burov.event.repository.entity.Concert;
 import by.burov.event.service.api.ConcertService;
@@ -16,11 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.lang.reflect.Field;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -29,16 +23,14 @@ public class ConcertServiceImp implements ConcertService {
     private ConcertRepository concertsDao;
     private MapperService mapperService;
 
+
     public ConcertServiceImp(ConcertRepository concertsDao, MapperService mapperService) {
         this.concertsDao = concertsDao;
         this.mapperService = mapperService;
     }
 
     @Override
-    public Concert save(CreateConcertDto dto) {
-
-        isValid(dto);
-
+    public ReadConcertDto save(CreateConcertDto dto) {
         RestTemplate restTemplate = new RestTemplate();
         String concertResourceUrl
                 //add to properties
@@ -50,7 +42,8 @@ public class ConcertServiceImp implements ConcertService {
             Concert concert = mapperService.concertEntity(dto);
             concert.setDtCreate(LocalDateTime.now());
             concert.setDtUpdate(LocalDateTime.now());
-            return concertsDao.save(concert);
+            ReadConcertDto readConcertDto = mapperService.readConcertDto(concertsDao.save(concert));
+            return readConcertDto;
         } else {
             throw new IllegalArgumentException("No such category in concert category classifier!");
         }
@@ -79,13 +72,10 @@ public class ConcertServiceImp implements ConcertService {
 
 
     @Override
-    public Concert update(UUID uuid, LocalDateTime dtUpdate, CreateConcertDto dto) {
-        isValid(dto);
-
+    public ReadConcertDto update(UUID uuid, LocalDateTime dtUpdate, CreateConcertDto dto) {
         if (uuid == null) {
             throw new IllegalArgumentException("The field cannot be null");
         }
-
         RestTemplate restTemplate = new RestTemplate();
         String concertResourceUrl
                 = "http://localhost:80/api/v1/classifier/concert/category";
@@ -101,7 +91,8 @@ public class ConcertServiceImp implements ConcertService {
             Concert concert = mapperService.concertEntity(dtoFromDB);
             // concert = mapperService.concertEntity(dto);
             addFields(dto, concert);
-            return concertsDao.save(concert);
+            ReadConcertDto readConcertDto = mapperService.readConcertDto(concertsDao.save(concert));
+            return readConcertDto;
         } else {
             throw new IllegalArgumentException("No such category in concert category!");
         }
@@ -117,51 +108,7 @@ public class ConcertServiceImp implements ConcertService {
         concert.setCategory(dto.getCategory());
     }
 
-    private boolean isValid(CreateConcertDto dto) {
-        ArrayList<FieldValidationError> errors = new ArrayList<>();
-        if (dto.getTitle() == null) {
-            errors.add(new FieldValidationError("logref","The field \"title\" cannot be null"));
-        }
-        if (dto.getDescription() == null) {
-            errors.add(new FieldValidationError("logref","The field \"description\" cannot be null"));
-        }
-        if (dto.getStatus() == null) {
-            errors.add(new FieldValidationError("logref","The field \"status\" cannot be null"));
-        }
-        if (dto.getType() == null) {
-            errors.add(new FieldValidationError("logref",  "The field \"type\" cannot be null"));
-        }
-        if (dto.getCategory() == null) {
-            errors.add(new FieldValidationError("logref","The field \"category\" cannot be null"));
-        }
-        if (dto.getDtEndOfSale() == null) {
-            errors.add(new FieldValidationError("logref","The field \"dt_end_of_sale\" cannot be null"));
-        }
-        if (dto.getDtEvent() == null) {
-            errors.add(new FieldValidationError("logref", "The field \"dt_event\" cannot be null"));
-        }
-        if (!errors.isEmpty()) {
-            throw new FieldValidationException("IllegalArgentException!!!", errors);
-        } else {
-            return true;
-        }
-
-        /*for (Field field : dto.getClass().getFields()) {
-            field.setAccessible(true);
-            if (field== null) {
-                errors.add(new FieldValidationError("logref",
-                        "The field " + field.getName() + " cannot be null"));
-            }
-
-        }
-        if (!errors.isEmpty()) {
-            throw new FieldValidationException("IllegalArgentException!!!", errors);
-        } else {
-            return true;
-        }
-    }*/
-    }
-
 }
+
 
 

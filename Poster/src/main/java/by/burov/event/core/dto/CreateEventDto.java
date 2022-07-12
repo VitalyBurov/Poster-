@@ -7,18 +7,30 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 public abstract class CreateEventDto {
 
+    @NotNull
     private String title;
+
+    @NotNull
     private String description;
+
+    @NotNull
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime dtEvent;
+
+    @NotNull
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime dtEndOfSale;
+
+    @NotNull
     @Enumerated(EnumType.STRING)
     private EventType type;
+
+    @NotNull
     @Enumerated(EnumType.STRING)
     private EventStatus status;
 

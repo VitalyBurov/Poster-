@@ -26,11 +26,12 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public Country save (CreateCountryDto dto) {
+    public ReadCountryDto save (CreateCountryDto dto) {
         Country country = mappingService.mapCreateCountry(dto);
         country.setDtCreate(LocalDateTime.now());
         country.setDtUpdate(LocalDateTime.now());
-        return this.countryDao.save(country);
+        ReadCountryDto readCountryDto = mappingService.mapReadCountry(this.countryDao.save(country));
+        return readCountryDto;
     }
 
     @Override

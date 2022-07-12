@@ -1,18 +1,19 @@
 package by.burov.classifiers.service.api;
 
 import org.springframework.data.domain.Page;
+import org.springframework.validation.annotation.Validated;
 
+import javax.validation.Valid;
 import java.util.UUID;
 
-public interface ClassifierService<E,C,R> {
+@Validated
+public interface ClassifierService<C, R> {
 
-    E save(C dto);
+    R save(@Valid C dto);
 
     Page<R> readAll(int pageNo, int pageSize);
 
     R getByUuid(UUID uuid);
-
-
 
 
 }

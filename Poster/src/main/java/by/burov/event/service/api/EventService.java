@@ -1,19 +1,22 @@
 package by.burov.event.service.api;
 
 import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
+import javax.validation.Valid;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 
-public interface EventService<T,C,R>{
+@Validated
+public interface EventService<C,R>{
 
-    T save(C dto);
+    R save (@Valid C dto);
 
     Page<R> readAll(int pageNo, int pageSize);
 
     R getEventByUuid(UUID uuid);
 
-    T update (UUID uuid, LocalDateTime dtUpdate, C dto);
+    R update (UUID uuid, LocalDateTime dtUpdate,@Valid C dto);
 }

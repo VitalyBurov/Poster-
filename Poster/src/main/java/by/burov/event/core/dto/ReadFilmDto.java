@@ -22,5 +22,21 @@ public class ReadFilmDto extends ReadEventDto{
     public void setDuration(int duration) {
         this.duration = duration;
     }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public int getReleaseYear() {
+        return releaseYear;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
 }
 

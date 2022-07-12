@@ -1,15 +1,16 @@
 package by.burov.event.controller.advices;
 
+import by.burov.event.core.api.FieldValidationError;
 import by.burov.event.core.dto.FieldValidationErrorDto;
 import by.burov.event.core.dto.FieldValidationResultDto;
-import by.burov.event.core.exception.FieldValidationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.client.HttpClientErrorException;
 
-import java.io.IOException;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+import javax.validation.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,10 +22,19 @@ public class GlobalHandler {
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public FieldValidationResultDto handle(FieldValidationException e){
-        List<FieldValidationErrorDto> errors = e.getErrors().stream().map(error -> new FieldValidationErrorDto(error.getField(), error.getMessage()))
-                .collect(Collectors.toList());
-        FieldValidationResultDto data = new FieldValidationResultDto(e.getLogref(),errors);
+    public FieldValidationResultDto handle(ConstraintViolationException e) {
+        List<FieldValidationError> errors = new ArrayList<>();
+        String field = null;
+        for (ConstraintViolation<?> constraintViolation : e.getConstraintViolations()) {
+            for (Path.Node node : constraintViolation.getPropertyPath()) {
+                field = node.getName();
+            }
+            errors.add(new FieldValidationError(constraintViolation.getMessage(), field));
+        }
+        FieldValidationResultDto data = new FieldValidationResultDto("structured_errors",
+                errors.stream()
+                        .map(error -> new FieldValidationErrorDto(error.getField(), error.getMessage()))
+                        .collect(Collectors.toList()));
         return data;
     }
 
@@ -59,7 +69,7 @@ public class GlobalHandler {
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public List<Map<String, Object>> handle(IllegalStateException e){
+    public List<Map<String, Object>> handle(IllegalStateException e) {
         List<Map<String, Object>> data = new ArrayList<>();
 
         Map<String, Object> map = new HashMap<>();

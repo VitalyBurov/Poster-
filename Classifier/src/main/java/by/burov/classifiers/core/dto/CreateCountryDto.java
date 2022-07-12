@@ -1,7 +1,12 @@
 package by.burov.classifiers.core.dto;
 
+import javax.validation.constraints.NotNull;
+
 public class CreateCountryDto {
+    @NotNull
     private String title;
+
+    @NotNull
     private String description;
 
     public String getTitle() {

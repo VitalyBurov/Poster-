@@ -27,11 +27,12 @@ public class ConcertServiceImpl implements ConcertService {
 
 
     @Override
-    public ConcertCategory save(CreateConcertCategoryDto dto) {
+    public ReadConcertCategoryDto save(CreateConcertCategoryDto dto) {
         ConcertCategory category = mappingService.mapCreateConcert(dto);
         category.setDtCreate(LocalDateTime.now());
         category.setDtUpdate(LocalDateTime.now());
-        return  this.categoryDao.save(category);
+        ReadConcertCategoryDto readConcertCategoryDto = mappingService.mapReadConcert(this.categoryDao.save(category));
+        return readConcertCategoryDto ;
     }
 
 

@@ -31,7 +31,7 @@ public class ClassifierController {
 
 
     @PostMapping("/country")
-    public ResponseEntity<Country> createCountry(@RequestBody CreateCountryDto dto) {
+    public ResponseEntity<ReadCountryDto> createCountry(@RequestBody CreateCountryDto dto) {
         return new ResponseEntity<>(countryService.save(dto), HttpStatus.CREATED);
 
     }
@@ -51,7 +51,7 @@ public class ClassifierController {
 
 
     @PostMapping("/concert/category")
-    public ResponseEntity<ConcertCategory> createConcertCategory(@RequestBody CreateConcertCategoryDto dto) {
+    public ResponseEntity<ReadConcertCategoryDto> createConcertCategory(@RequestBody CreateConcertCategoryDto dto) {
         return new ResponseEntity<>(concertCategoryService.save(dto), HttpStatus.CREATED);
 
     }

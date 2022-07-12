@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -28,7 +29,7 @@ public class ConcertController {
     }
 
     @PostMapping // change to Read concert
-    public ResponseEntity<Concert> createConcert(@RequestBody CreateConcertDto concert) {
+    public ResponseEntity<ReadConcertDto> createConcert(@RequestBody CreateConcertDto concert) {
         return new ResponseEntity<>(concertsService.save(concert), HttpStatus.CREATED);
 
     }
@@ -37,7 +38,7 @@ public class ConcertController {
     @GetMapping
     public ResponseEntity<APIResponse<ReadConcertDto>> getAllConcerts(@RequestParam(defaultValue = "1") int pageNo,
                                                                       @RequestParam(defaultValue = "10") int pageSize) {
-        APIResponse<ReadConcertDto> response = new APIConverter<ReadConcertDto>().convert(concertsService.readAll(pageNo-1, pageSize));
+        APIResponse<ReadConcertDto> response = new APIConverter<ReadConcertDto>().convert(concertsService.readAll(pageNo - 1, pageSize));
         return new ResponseEntity<>(
                 response, HttpStatus.OK);
     }
@@ -49,9 +50,9 @@ public class ConcertController {
 
     @PutMapping("/{uuid}/dt_update/{dt_update}")
     // change to Read concert
-    public ResponseEntity<Concert> updateConcert(@PathVariable("uuid") UUID uuid,
-                                 @PathVariable("dt_update") Long dt,
-                                 @RequestBody CreateConcertDto concert) {
+    public ResponseEntity<ReadConcertDto> updateConcert(@PathVariable("uuid") UUID uuid,
+                                                        @PathVariable("dt_update") Long dt,
+                                                        @RequestBody CreateConcertDto concert) {
         //Should refactor
         LocalDateTime dtUpdate = LocalDateTime.ofInstant(Instant.ofEpochMilli(dt), ZoneId.systemDefault());
 
