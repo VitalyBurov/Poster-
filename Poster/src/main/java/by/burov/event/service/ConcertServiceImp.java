@@ -6,6 +6,7 @@ import by.burov.event.repository.ConcertRepository;
 import by.burov.event.repository.entity.Concert;
 import by.burov.event.service.api.ConcertService;
 import by.burov.event.service.api.MapperService;
+import com.sun.xml.bind.v2.TODO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -87,9 +88,8 @@ public class ConcertServiceImp implements ConcertService {
             if (!dtoFromDB.getDtUpdate().equals(dtUpdate)) {
                 throw new IllegalArgumentException("The Film was updated before you!!!");
             }
-            //should refactor check to null every field
             Concert concert = mapperService.concertEntity(dtoFromDB);
-            // concert = mapperService.concertEntity(dto);
+            // Should Refactor
             addFields(dto, concert);
             ReadConcertDto readConcertDto = mapperService.readConcertDto(concertsDao.save(concert));
             return readConcertDto;

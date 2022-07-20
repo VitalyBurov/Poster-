@@ -28,13 +28,12 @@ public class ConcertController {
 
     }
 
-    @PostMapping // change to Read concert
+    @PostMapping
     public ResponseEntity<ReadConcertDto> createConcert(@RequestBody CreateConcertDto concert) {
         return new ResponseEntity<>(concertsService.save(concert), HttpStatus.CREATED);
 
     }
 
-    // add pageable and responseEntity;
     @GetMapping
     public ResponseEntity<APIResponse<ReadConcertDto>> getAllConcerts(@RequestParam(defaultValue = "1") int pageNo,
                                                                       @RequestParam(defaultValue = "10") int pageSize) {
@@ -49,7 +48,6 @@ public class ConcertController {
     }
 
     @PutMapping("/{uuid}/dt_update/{dt_update}")
-    // change to Read concert
     public ResponseEntity<ReadConcertDto> updateConcert(@PathVariable("uuid") UUID uuid,
                                                         @PathVariable("dt_update") Long dt,
                                                         @RequestBody CreateConcertDto concert) {
